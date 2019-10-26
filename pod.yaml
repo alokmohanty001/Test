@@ -2,6 +2,11 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: nginx-deployment
+spec:
+   containers:
+   - name: testpod
+     image: alpine:3.5
+     command: ["ping", "8.8.8.8"]
 #spec:
   # A deployment's specification really only 
   # has a few useful options
