@@ -10,13 +10,13 @@ spec:
   replicas: 3
 
   # 2. How do want to update the pods?
-  strategy: Recreate
+  #strategy: Recreate
 
   # 3. Which pods are managed by this deployment?
-  selector:
+  #selector:
     # This must match the labels we set on the pod!
-    matchLabels:
-      deploy: example
+    #matchLabels:
+      #deploy: example
   
   # This template field is a regular pod configuration 
   # nested inside the deployment spec
