@@ -26,6 +26,7 @@ public class Algorithms {
         Set<Integer> res=integerArrStream.filter(n->!allItem.add(n)).collect(Collectors.toSet());
         System.err.println(res);
         
+        
         // findout middle index where sum of both end is equal
         Stream<Integer> s1=Stream.of(new Integer[]{1,2,3,2,1});
         s1.filter(n->)
