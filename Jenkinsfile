@@ -2,32 +2,18 @@ pipeline {
     agent {
         docker { image 'node:7-alpine' }
     }
-    stage('Checkout') {
+    stages{
+        stage('Checkout') {
             git url: 'https://github.com/alokmohanty001/Test.git', branch: 'master'
         }
  
         stage('Build') {
-            sh 'mvn clean install'
- 
-            def pom = readMavenPom file:'pom.xml'
-            print pom.version
-            env.version = pom.version
-        }
- 
-        stage('Image') {
-            dir ('Test') {
-                def app = docker.build "localhost:5000/"
-                app.push()
-            }
+            sh 'mvn package docker:build'
         }
  
         stage ('Run') {
-            docker.image("localhost:5000/docker").run('-p 2222:2222 -h account --name account --link discovery')
+            sh 'docker run -p 8080:8080 docker/docker:latest'
         }
- 
-        stage ('Final') {
-            build job: 'customer-service-pipeline', wait: false
-        } 
     }
     
 }
