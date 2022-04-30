@@ -19,7 +19,7 @@ node {
          * Just an example */
 
         app.inside {
-            sh 'node --version'
+            cmd 'node --version'
         }
     }
 
