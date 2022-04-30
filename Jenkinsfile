@@ -19,7 +19,7 @@ node {
          * Just an example */
 
         app.inside {
-            cmd 'echo "Tests passed"'
+            sh 'echo "Tests passed"'
         }
     }
 
