@@ -1,9 +1,9 @@
 pipeline {
-	agent { docker { image 'node:16.13.1-alpine'}}
+	agent { docker { image 'maven:3.6.3'}}
 	stages {
 		stage('Build') {
 			steps{
-				sh 'node --version'
+				sh 'mvn --version'
 				echo "build phase executed"
 			}
 		}
